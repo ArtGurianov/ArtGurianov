@@ -1,0 +1,148 @@
+<template>
+    <div id="homePageWrapper">
+
+        <!-- MOBILE VERSION -->
+        <div v-if="$store.state.mobileVersion" id="homePageMobile" class="row">
+
+            <router-link v-for="(each, i) in ['portfolio', 'agencies', 'contact', 'web']" :key="i" :to="'/' + each">
+                <div @click="$store.commit('levelUp', each);" :id="each + '-select'" class="select">
+                    <div class="inner-select">
+                        <div :id="'mobile-' + each + '-select'">
+                            <p>{{ categories[each].title }}</p>
+                        </div>
+                    </div>
+                </div>
+            </router-link>
+
+        </div>
+
+        <!-- DESKTOP VERSION -->
+        <div v-if="!this.$store.state.mobileVersion" id="homePageDesktop" class="row">
+                <carousel>
+                    <carousel-slide v-for="(each, i) in ['portfolio', 'agencies', 'web', 'contact']" :index="i" :key="i">
+                        <router-link :to="'/' + each">
+                            <img @click="$store.commit('levelUp', each)" class="slide" :src="'../../../src/assets/' + each + 'select.jpg'" width="100%">
+                        </router-link>
+                    </carousel-slide>
+                </carousel>
+        </div>
+    </div>
+
+</template>
+
+<script>
+    import Carousel from '../../components/carousel/Carousel.vue';
+    import CarouselSlide from '../../components/carousel/CarouselSlide.vue';
+    import { Categories } from '../../store/categories';
+
+    export default {
+        data: function() {
+            return {
+                slides: 4,
+                categories: Categories
+            }
+        },
+        components: {
+            Carousel,
+            CarouselSlide
+        }
+    }
+</script>
+
+<style>
+    #homePageWrapper {
+        height: 100%;
+        width: 100%;
+        margin: 0;
+        padding: 0;
+    }
+
+    #homePageMobile {
+        height: 100%;
+        width: 100%;
+        margin: 0;
+        padding: 0;
+    }
+
+    #homePageDesktop {
+        height: 100%;
+        width: 100%;
+        margin: 0;
+        padding: 0;
+    }
+    .slide {
+        position: relative;
+    }
+
+
+
+    #portfolio-select {
+        height: 50%;
+        width: 100%;
+    }
+    #agencies-select {
+        height: 30%;
+        width: 100%;
+    }
+    #contact-select {
+        height: 20%;
+        width: 60%;
+    }
+    #web-select {
+        height: 20%;
+        width: 40%;
+    }
+
+    .inner-select p {
+        position: relative;
+        top: 50%;
+        transform: translateY(-50%);
+        color: white;
+        font-size: 8vw;
+        text-align: center;
+        text-shadow: -2px 0 black, 0 2px black, 2px 0 black, 0 -2px black;
+    }
+
+    #mobile-portfolio-select {
+        margin: 0;
+        padding: 0;
+        height: 100%;
+        width: 100%;
+        background-image: url("../../../src/assets/portfolioselect.jpg");
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: 50% 50%;
+    }
+    #mobile-agencies-select {
+        margin: 0;
+        padding: 0;
+        height: 100%;
+        width: 100%;
+        background-image: url("../../../src/assets/agenciesselect.jpg");
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: 50% 50%;
+    }
+    #mobile-contact-select {
+        margin: 0;
+        padding: 0;
+        height: 100%;
+        width: 100%;
+        background-image: url("../../../src/assets/contactselect.jpg");
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: 50% 50%;
+    }
+    #mobile-web-select {
+        margin: 0;
+        padding: 0;
+        height: 100%;
+        width: 100%;
+        background-image: url("../../../src/assets/webselectmobile.jpg");
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: 50% 50%;
+    }
+
+
+</style>
