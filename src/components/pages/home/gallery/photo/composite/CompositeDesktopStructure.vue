@@ -1,5 +1,5 @@
 <template>
-    <div class="wrapper" style="border-radius: 10px; overflow: hidden;">
+    <div class="wrapper" style="overflow: hidden; display: block">
             <div id="compositeWrapperDesktop">
                 <div id="compositeDesktopHeader"><h2 style="text-align: center; color: white; font-family: SansSerif">Fill out the Composite Card</h2></div>
                 <div id="compositeDesktop">

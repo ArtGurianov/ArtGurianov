@@ -4,7 +4,7 @@
       <app-nav></app-nav>
       <transition name="content-fadein">
           <div v-if="showContent" id="appContent">
-              <router-view></router-view>
+              <router-view :key="$route.path"></router-view>
           </div>
       </transition>
   </div>
@@ -13,8 +13,7 @@
 <script>
     import Header from './components/Header.vue';
     import Nav from './components/Nav.vue';
-    import Home from './components/pages/Home.vue';
-    import Gallery from './components/pages/home/Gallery.vue';
+    import Menu from './components/pages/Menu.vue';
     import Agencies from './components/pages/home/Agencies.vue';
     import Contact from './components/pages/home/Contact.vue';
     import Web from './components/pages/home/Web.vue';
@@ -29,8 +28,7 @@
         components: {
             appHeader: Header,
             appNav: Nav,
-            appHome: Home,
-            appGallery: Gallery,
+            appMenu: Menu,
             appAgencies: Agencies,
             appContact: Contact,
             appWeb: Web
@@ -111,7 +109,6 @@
         padding: 0;
         margin: 0;
         width: 100%;
-        height: 25%;
         background-color: rgba(0, 0, 0, 0.5);
         overflow: hidden;
         border-bottom: 1px solid white;
@@ -140,7 +137,6 @@
         margin: 0;
         padding: 0;
         width: 100%;
-        background-color: yellow;
     }
 
 </style>

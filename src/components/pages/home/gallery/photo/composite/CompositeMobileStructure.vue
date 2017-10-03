@@ -1,5 +1,5 @@
 <template>
-    <div class="wrapper">
+    <div class="wrapper" style="overflow: hidden; display: block">
         <div v-if="$store.state.chosenPhotos.length == 5">
             <div id="compositeWrapperMobile">
                 <div id="compositeMobile">

@@ -1,5 +1,5 @@
 <template>
-    <div class="wrapper" style="overflow: hidden">
+    <div class="wrapper" style="overflow: hidden; display: block">
         <div id="thumbnailsGrid" class="col-xs-3 col-sm-7">
             <div class="container" id="gridWrapper">
                 <div v-for="pic in allPhotos"

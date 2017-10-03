@@ -1,5 +1,5 @@
 <template>
-    <div class="wrapper">
+    <div class="wrapper" style="display: block">
         <div class="wrapper" v-if="$store.state.chosenPhotos.length == 5">
             <!-- Desktop Version-->
                 <app-composite-desktop-structure v-if="!this.$store.state.mobileVersion"></app-composite-desktop-structure>
