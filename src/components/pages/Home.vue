@@ -1,19 +1,18 @@
 <template>
     <div class="wrapper">
-
-
-            <router-link
-                    tag="div"
-                    v-for="(each, i) in ['gallery', 'agencies', 'contact', 'web']"
-                    :key="i"
-                    :id="categories[each].id"
-                    class="inner-select"
-                    @click.native="$store.commit('levelUp', each);"
-                    :to="'/' + each">
-                        <p>{{ categories[each].title }}</p>
-            </router-link>
-
-
+        <div class="inner-wrap" style="height:100%">
+            <div style="height: 100%">
+                <router-link tag="div"
+                            v-for="(each, i) in ['gallery', 'agencies', 'contact', 'web']"
+                            :key="i"
+                            :id="categories[each].id"
+                            class="inner-select"
+                            @click.native="$store.commit('levelUp', each);"
+                            :to="'/' + each">
+                            <p>{{ categories[each].title }}</p>
+                </router-link>
+            </div>
+        </div>
     </div>
 
 </template>

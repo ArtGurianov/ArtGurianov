@@ -127,37 +127,20 @@
         text-shadow: -2px 0 black, 0 2px black, 2px 0 black, 0 -2px black;
     }
 
-    /*.content {
-        position: relative;
-        box-sizing: border-box;
-        -moz-box-sizing: border-box;
-        -webkit-box-sizing: border-box;
-        color: white;
+    .wrapper {
         display: flex;
         align-items: center;
-        text-align: center;
-        justify-content: center;
-        float: left;
-        border: 1px solid white;
-        text-shadow: -2px 0 black, 0 2px black, 2px 0 black, 0 -2px black;
-
-    }*/
-
-    .wrapper {
         margin: 0;
         padding: 0;
         height: 100%;
         width: 100%;
     }
-    .inner-wrapper {
-        display: block;
+
+    .inner-wrap {
         margin: 0;
         padding: 0;
-        height: 50%;
         width: 100%;
         background-color: yellow;
-        margin-top: 20%;
-        transform: translateY(-50%);
     }
 
 </style>
