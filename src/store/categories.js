@@ -4,7 +4,7 @@ export const Categories = {
             title: 'Home',
             defaultChainEl: ['home'],
             component: 'Menu',
-            styles: {elements: ['gallery', 'agencies', 'contact', 'web'], wrapperHeight: '100%', eachHeight: '25%'}
+            elements: ['gallery', 'agencies', 'contact', 'web']
         },
         contact: {
             id: 'contact-select',
@@ -23,7 +23,7 @@ export const Categories = {
             title: 'Photo',
             defaultChainEl: ['home', 'gallery', 'photo'],
             component: 'Menu',
-            styles: {elements: ['book', 'composite', 'snapshots'], wrapperHeight: '75%', eachHeight: '33.333%'}
+            elements: ['book', 'composite', 'snapshots']
         },
 
         book: {
@@ -37,7 +37,7 @@ export const Categories = {
             title: 'Gallery',
             defaultChainEl: ['home', 'gallery'],
             component: 'Menu',
-            styles: {elements: ['photo', 'video'], wrapperHeight: '50%', eachHeight: '50%'}
+            elements: ['photo', 'video']
         },
 
         composite: {

@@ -1,5 +1,5 @@
 <template>
-    <div class="wrapper">
+    <div class="wrapper" style="display: block">
         <div :class="[{ 'agencyMobile': $store.state.mobileVersion }, 'agencyDesktop']"
              v-for="(each, i) in ['Russia', 'France', 'Italy', 'Japan', 'Korea', 'Others']"
              :style="{ 'background-image': 'url(../../../src/assets/agencies/' + categories.agencies.content[each].title + '-flag.png)' } "
