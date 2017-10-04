@@ -1,5 +1,5 @@
 <template>
-    <div class="wrapper" style="overflow: hidden; display: block">
+    <div class="wrapper" style="overflow: hidden; display: block; background-color: rgba(0,0,0,0.5);">
             <div id="compositeWrapperDesktop">
                 <div id="compositeDesktopHeader"><h2 style="text-align: center; color: white; font-family: SansSerif">Fill out the Composite Card</h2></div>
                 <div id="compositeDesktop">
@@ -91,7 +91,6 @@
         width: 100%;
         height: 15%;
         top: 0;
-        background-color: rgba(0,0,0,0.5);
     }
     #compositeDesktop {
         position: relative;
@@ -106,7 +105,6 @@
         width: 100%;
         height: 15%;
         bottom: 0;
-        background-color: rgba(0,0,0,0.5);
     }
     #compositeDesktopFooter button {
         height: 50%;
@@ -127,7 +125,6 @@
     #chosenPicturesContainerDesktop {
         display: flex;
         height: 100%;
-        background-color: rgba(0,0,0,0.5);
         padding-right: 10px;
     }
     #chosenPicturesContainerDesktop img {

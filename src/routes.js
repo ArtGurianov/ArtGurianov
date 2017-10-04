@@ -10,6 +10,7 @@ import Snapshots from './components/pages/home/gallery/photo/Snapshots.vue';
 
 export const routes = [
     {path: '/', redirect: '/home'},
+    {path: '/admin', redirect: ''},
     {path: '/home', component: Menu},
     {path: '/agencies', component: Agencies},
     {path: '/gallery', component: Menu},
@@ -19,6 +20,7 @@ export const routes = [
     {path: '/video', component: Video},
     {path: '/book', component: Book},
     {path: '/composite', component: Composite},
-    {path: '/snapshots', component: Snapshots}
+    {path: '/snapshots', component: Snapshots},
+    {path: '*', redirect: '/home'}
 
 ];
