@@ -26,6 +26,7 @@
 
 <script>
     import { Categories } from '../../../../../store/categories';
+    import MediaService from '../../../../../services/MediaService';
 
     export default {
         data() {
@@ -48,6 +49,9 @@
                 this.$store.state.chainEl = ['home', 'gallery', 'photo', 'composite'];
                 this.$router.push('composite');
             }
+        },
+        mounted: function() {
+            console.log(this.$store.state.db_book);
         }
     }
 </script>

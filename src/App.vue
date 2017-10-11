@@ -34,6 +34,7 @@
             appWeb: Web
         },
         beforeCreate() {
+            this.$store.dispatch('requestMediaData');
             this.$store.commit('setChainEl', this.$route.path.slice(1));
             this.$store.commit('setBrowserHeight', window.innerHeight);
             this.$store.commit('setBrowserWidth', window.innerWidth);
