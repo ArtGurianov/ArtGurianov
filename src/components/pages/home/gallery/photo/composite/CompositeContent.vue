@@ -2,7 +2,7 @@
     <div id="contentWrapper">
         <div id="mainCompositePictureContainer">
             <div v-if="compositePictures[0] != undefined" id="mainCompositePicture"
-                 :style="{ 'background-image': 'url(/src/assets/book/' + compositePictures[0] + ')' } "
+                 :style="{ 'background-image': 'url(http://localhost:3000/images/' + compositePictures[0] + ')' } "
                  @click="removeImage">
 
             </div>
@@ -14,28 +14,28 @@
             <div id="smallCompositePictures">
                 <div class="smallCompositePicWrapper">
                     <div v-if="compositePictures[1] != undefined" id="smallCompositePicture1"
-                         :style="{ 'background-image': 'url(/src/assets/book/' + compositePictures[1] + ')' } "
+                         :style="{ 'background-image': 'url(http://localhost:3000/images/' + compositePictures[1] + ')' } "
                          @click="removeImage">
                     </div>
                     <div v-else id="numberTwo"></div>
                 </div>
                 <div class="smallCompositePicWrapper">
                     <div v-if="compositePictures[2] != undefined" id="smallCompositePicture2"
-                         :style="{ 'background-image': 'url(/src/assets/book/' + compositePictures[2] + ')' } "
+                         :style="{ 'background-image': 'url(http://localhost:3000/images/' + compositePictures[2] + ')' } "
                          @click="removeImage">
                     </div>
                     <div v-else id="numberThree"></div>
                 </div>
                 <div class="smallCompositePicWrapper">
                     <div v-if="compositePictures[3] != undefined" id="smallCompositePicture3"
-                         :style="{ 'background-image': 'url(/src/assets/book/' + compositePictures[3] + ')' } "
+                         :style="{ 'background-image': 'url(http://localhost:3000/images/' + compositePictures[3] + ')' } "
                          @click="removeImage">
                     </div>
                     <div v-else id="numberFour"></div>
                 </div>
                 <div class="smallCompositePicWrapper">
                     <div v-if="compositePictures[4] != undefined" id="smallCompositePicture4"
-                         :style="{ 'background-image': 'url(/src/assets/book/' + compositePictures[4] + ')' } "
+                         :style="{ 'background-image': 'url(http://localhost:3000/images/' + compositePictures[4] + ')' } "
                          @click="removeImage">
                     </div>
                     <div v-else id="numberFive" ></div>
@@ -60,8 +60,7 @@
                 chosenPhotos: this.$store.state.chosenPhotos.slice()
             }
         },
-        props: ['compositePictures', 'chosenPhotos']
-        ,
+        props: ['compositePictures', 'chosenPhotos'],
         methods: {
 
             removeImage() {

@@ -16,7 +16,7 @@
             <div id="chosenPicturesWrapperDesktop">
                 <div id="chosenPicturesContainerDesktop">
                     <img v-for="img in chosenPhotos"
-                         :src="'/src/assets/book/' + img"
+                         :src="'http://localhost:3000/images/' + img"
                          :id="img"
                          @click="placeImage">
                 </div>

@@ -10,7 +10,7 @@
             <div id="chosenPicturesWrapperMobile">
                 <div id="chosenPicturesContainerMobile">
                     <img v-for="img in chosenPhotos"
-                         :src="'/src/assets/book/' + img"
+                         :src="'http://localhost:3000/images/' + img"
                          :id="img"
                          @click="placeImage">
                     <button v-if="chosenPhotos.length == 0" class="btn btn-success">DOWNLOAD</button>

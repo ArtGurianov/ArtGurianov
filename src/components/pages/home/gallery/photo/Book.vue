@@ -4,14 +4,14 @@
             <div class="container" id="gridWrapper">
                 <div v-for="pic in allPhotos"
                      class="thumbnail col-xs-12 col-sm-3"
-                     :id="pic + '.jpg'" :style="{ 'background-image': 'url(/src/assets/book/' + pic + '.jpg)' } "
+                     :id="pic.filename" :style="{ 'background-image': 'url(http://localhost:3000/images/' + pic.filename + ')' } "
                      @click="openPic">
-                    <input :id="pic + '.jpg'" :disabled="$store.state.chosenPhotos.length >= 5" type="checkbox" :value="pic + '.jpg'" v-model="$store.state.chosenPhotos">
+                    <input :id="pic.filename" :disabled="$store.state.chosenPhotos.length >= 5" type="checkbox" :value="pic.filename" v-model="$store.state.chosenPhotos">
                 </div>
             </div>
         </div>
 
-        <div id="bigPic" class="content col-xs-9 col-sm-5" :style="{ 'background-image': 'url(/src/assets/book/' + openedPic + ')' } ">
+        <div id="bigPic" class="content col-xs-9 col-sm-5" :style="{ 'background-image': 'url(http://localhost:3000/images/' + openedPic + ')' } ">
         </div>
 
         <div id="compositeBar" class="col-xs-9 col-sm-5">
@@ -31,8 +31,8 @@
     export default {
         data() {
             return {
-                openedPic: '0.jpg',
-                allPhotos: 36,
+                openedPic: 'one.jpg',
+                allPhotos: this.$store.state.db_book,
                 choosePhotos: 5
             }
         },
