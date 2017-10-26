@@ -14,7 +14,6 @@ var authSecret = 'HK5LSXAMSDXU7BQ3GEEMACVKVCTLVRVV'//twoFactor.generateSecret({n
 var authToken = undefined; // valid for 1 minute to login
 var	sessionToken = undefined; //valid for 10 minutes to update content
 
-
 const app = express();
 app.use(express.static(path.join(__dirname, '../public')));
 
@@ -22,6 +21,7 @@ app.use(morgan('combine'));
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 app.use(cors());
+app.options('*', cors());
 
 const MediaModel = require('../models/MediaModel');
 
@@ -38,19 +38,13 @@ app.post('/api/validate_authToken', (req, res) => {
 	var result = twoFactor.verifyToken(authSecret, req.body.authcode); //authSecret.secret
 
 	if (result === null) {
-    res.statusCode = 302;
-    res.setHeader("Location", "http://localhost:8080/auth.html");
-    res.end();
+    res.send({status: "Code is wrong!"});
 	} else if (result.delta < 0) {
-    res.statusCode = 302;
-    res.setHeader("Location", "http://localhost:8080/auth.html");
-    res.end();
+    res.send({status: "Code is outdated!"});
 	} else if (result.delta >= 0) {
 		sessionToken = SHA256(authToken).toString();
     setTimeout(function(){ sessionToken = undefined }, 600000);
-    res.statusCode = 302;
-    res.setHeader("Location", "http://localhost:8080/admin.html?sessionToken=" + sessionToken);
-    res.end();
+    res.send({status: "OK", sessionToken: sessionToken});
 	}
 });
 
@@ -66,7 +60,7 @@ app.post('/api/validate_sessionToken', (req, res) => {
 
 
 app.get('/api/get_media_data', function (req, res) {
-
+  /*
   MediaModel.find({}, function (err, data) {
     if (err) {
       res.send(err);
@@ -74,6 +68,7 @@ app.get('/api/get_media_data', function (req, res) {
       res.json(data);
     }
   });
+  */
 
 });
 

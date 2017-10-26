@@ -7,6 +7,8 @@ Vue.use(Vuex);
 
 export const store = new Vuex.Store({
     state: {
+        isAdmin: 0,
+        sessionToken: null,
         levels: 1,
         chainEl: ['home'],
         clickedEl: 'home',

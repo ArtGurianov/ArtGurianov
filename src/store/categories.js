@@ -1,4 +1,16 @@
 export const Categories = {
+        auth: {
+            id: 'auth',
+            title: 'Login',
+            defaultChainEl: ['auth'],
+            component: 'Auth'
+        },
+        admin: {
+            id: 'admin',
+            title: 'Admin Panel',
+            defaultChainEl: ['admin'],
+            component: 'Admin'
+          },
         home: {
             id: 'home',
             title: 'Home',

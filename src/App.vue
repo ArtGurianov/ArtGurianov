@@ -1,9 +1,9 @@
 <template>
   <div id="app" class="container">
       <app-header></app-header>
-      <app-nav></app-nav>
+      <app-nav v-if="$route.path != '/auth' && $route.path != '/admin'"></app-nav>
       <transition name="content-fadein">
-          <div v-if="showContent" id="appContent">
+          <div v-if="showContent" :id="$route.path != '/admin' ? 'appContent' : 'admin'">
               <router-view :key="$route.path"></router-view>
           </div>
       </transition>
@@ -14,9 +14,6 @@
     import Header from './components/Header.vue';
     import Nav from './components/Nav.vue';
     import Menu from './components/pages/Menu.vue';
-    import Agencies from './components/pages/home/Agencies.vue';
-    import Contact from './components/pages/home/Contact.vue';
-    import Web from './components/pages/home/Web.vue';
 
 
     export default {
@@ -28,13 +25,10 @@
         components: {
             appHeader: Header,
             appNav: Nav,
-            appMenu: Menu,
-            appAgencies: Agencies,
-            appContact: Contact,
-            appWeb: Web
+            appMenu: Menu
         },
-        beforeCreate() {
-            this.$store.dispatch('requestMediaData');
+        beforeCreate: function () {
+            //this.$store.dispatch('requestMediaData');
             this.$store.commit('setChainEl', this.$route.path.slice(1));
             this.$store.commit('setBrowserHeight', window.innerHeight);
             this.$store.commit('setBrowserWidth', window.innerWidth);
@@ -53,6 +47,16 @@
 </script>
 
 <style lang="scss">
+
+    #admin {
+        margin: 0;
+        padding: 0;
+        position: absolute;
+        height: 100%;
+        width: 100%;
+        overflow-y: scroll;
+        background-color: rgba(0,0,0,0.5);
+    }
 
     #app {
         margin: 0;
@@ -77,11 +81,17 @@
         #appContent {
             height: calc(100% - 80px - 15%);
         }
+        #admin {
+            height: calc(100% - 15%);
+        }
     }
     @media only screen
     and (max-width : 768px) {
         #appContent {
             height: calc(100% - 80px - 10%);
+        }
+        #admin {
+            height: calc(100% - 10%);
         }
     }
 
