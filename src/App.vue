@@ -28,8 +28,8 @@
             appMenu: Menu
         },
         beforeCreate: function () {
-            //this.$store.dispatch('requestMediaData');
-            this.$store.commit('setChainEl', this.$route.path.slice(1));
+            this.$store.dispatch('requestMediaData');
+            //this.$store.commit('setChainEl', this.$route.path.slice(1));
             this.$store.commit('setBrowserHeight', window.innerHeight);
             this.$store.commit('setBrowserWidth', window.innerWidth);
             if (window.innerWidth < 768) {
@@ -42,6 +42,7 @@
                 reference.showContent = true;
             }, 3500);
         }
+
     }
 
 </script>

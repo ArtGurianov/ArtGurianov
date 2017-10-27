@@ -1,5 +1,6 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
+import { sync } from 'vuex-router-sync';
 import App from './App.vue'
 import { routes } from './routes';
 import { store } from './store/store';
@@ -13,6 +14,8 @@ const router = new VueRouter({
     mode: 'history',
     routes: routes
 });
+
+sync(store, router);
 
 new Vue({
     el: '#app',

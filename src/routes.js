@@ -11,19 +11,30 @@ import Snapshots from './components/pages/home/gallery/photo/Snapshots.vue';
 
 
 export const routes = [
-    {path: '/', redirect: '/home'},
-    {path: '/auth', component: Auth},
-    {path: '/admin', component: Admin},
-    {path: '/home', component: Menu},
-    {path: '/agencies', component: Agencies},
-    {path: '/gallery', component: Menu},
-    {path: '/contact', component: Contact},
-    {path: '/web', component: Web},
-    {path: '/photo', component: Menu},
-    {path: '/video', component: Video},
-    {path: '/book', component: Book},
-    {path: '/composite', component: Composite},
-    {path: '/snapshots', component: Snapshots},
-    {path: '*', redirect: '/home'}
+      {path: '/', redirect: '/home'},
+      {path: '/auth', component: Auth},
+      {path: '/admin', component: Admin},
+      {path: '/home', component: Menu},
+      {path: '/home/gallery', component: Menu},
+      {path: '/home/agencies', component: Agencies},
+      {path: '/home/contact', component: Contact},
+      {path: '/home/web', component: Web},
+      {path: '/home/gallery/photo', component: Menu},
+      {path: '/home/gallery/video', component: Video},
+      {path: '/home/gallery/photo/book', component: Book},
+      {path: '/home/gallery/photo/composite', component: Composite},
+      {path: '/home/gallery/photo/snapshots', component: Snapshots},
+
+      {path: '/agencies', redirect: '/home/agencies'},
+      {path: '/gallery', redirect: '/home/gallery'},
+      {path: '/contact', redirect: '/home/contact'},
+      {path: '/web', redirect: '/home/web'},
+      {path: '/photo', redirect: '/home/gallery/photo'},
+      {path: '/video', redirect: '/home/gallery/video'},
+      {path: '/book', redirect: '/home/gallery/photo/book'},
+      {path: '/composite', redirect: '/home/gallery/photo/composite'},
+      {path: '/snapshots', redirect: '/home/gallery/photo/snapshots'},
+
+      {path: '*', redirect: '/home'}
 
 ];

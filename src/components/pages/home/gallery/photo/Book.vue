@@ -26,7 +26,6 @@
 
 <script>
     import { Categories } from '../../../../../store/categories';
-    import MediaService from '../../../../../services/MediaService';
 
     export default {
         data() {
@@ -51,7 +50,7 @@
             }
         },
         mounted: function() {
-            console.log(this.$store.state.db_book);
+            //console.log(this.$store.state.db_book);
         }
     }
 </script>

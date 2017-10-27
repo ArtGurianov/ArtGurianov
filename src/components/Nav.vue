@@ -2,13 +2,11 @@
     <transition name="nav-fadein">
         <div v-if="showNav" id="nav">
             <ul class="progressbar">
-                <router-link :to="'/' + $store.state.clickedEl">
-                    <li v-for="elem in $store.state.chainEl"
+                    <li v-for="elem in $route.path.split('/').slice(1)"
                         :id="elem + '-nav'"
                         :style="{ width: singleWidth + '%' }"
-                        @click="$store.commit('levelDown', elem);">  {{ categories[elem].title }}
+                        @click="$router.push($route.path.split(elem)[0]+elem)">  {{ categories[elem].title }}
                     </li>
-                </router-link>
             </ul>
         </div>
     </transition>
@@ -16,7 +14,6 @@
 
 <script>
     import { Categories } from '../store/categories';
-    import { mapGetters } from 'vuex';
 
     export default {
         data(){
@@ -32,12 +29,8 @@
             }, 3000);
         },
         computed: {
-            ...mapGetters([
-                    'levelUp',
-                    'levelDown'
-                ]),
             singleWidth: function () {
-                return 100/this.$store.state.levels;
+                return 100/(this.$route.path.split('/').length - 1);
             }
         }
     }

@@ -60,7 +60,7 @@ app.post('/api/validate_sessionToken', (req, res) => {
 
 
 app.get('/api/get_media_data', function (req, res) {
-  /*
+
   MediaModel.find({}, function (err, data) {
     if (err) {
       res.send(err);
@@ -68,7 +68,6 @@ app.get('/api/get_media_data', function (req, res) {
       res.json(data);
     }
   });
-  */
 
 });
 

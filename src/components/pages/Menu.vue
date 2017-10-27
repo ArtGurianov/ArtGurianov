@@ -8,8 +8,8 @@
                              :id="categories[each].id"
                              class="inner-select"
                              :style="{height: eachHeight + '%'}"
-                             @click.native="$store.commit('levelUp', each);"
-                             :to="'/' + each">
+                             @click="$router.push($route.path+'/'+each);"
+                             :to="$route.path+'/'+each">
                     <p>{{ categories[each].title }}</p>
                 </router-link>
             </div>
@@ -31,7 +31,7 @@
       }
     },
     created: function () {
-      this.component = this.$route.path.slice(1);
+      this.component = this.$route.path.split('/')[this.$route.path.split('/').length-1];
       this.wrapperHeight = this.categories[this.component].elements.length * 25;
       this.eachHeight = 100 / this.categories[this.component].elements.length;
     }

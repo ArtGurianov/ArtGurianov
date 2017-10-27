@@ -9,8 +9,6 @@ export const store = new Vuex.Store({
     state: {
         isAdmin: 0,
         sessionToken: null,
-        levels: 1,
-        chainEl: ['home'],
         clickedEl: 'home',
         chosenPhotos: [],
         browserHeight: null,
@@ -32,22 +30,6 @@ export const store = new Vuex.Store({
         },
         setBrowserWidth: function (state, width) {
             state.browserWidth = width;
-        },
-        setChainEl: function (state, destination) {
-            if (destination) {
-                state.chainEl = state.categories[destination].defaultChainEl;
-                state.levels = state.chainEl.length;
-            }
-        },
-        levelUp: function (state, component) {
-            state.levels++;
-            state.clickedEl = component;
-            state.chainEl.push(component);
-        },
-        levelDown: function (state, component) {
-            state.clickedEl = component;
-            state.chainEl = state.chainEl.slice(0, state.chainEl.indexOf(state.clickedEl) + 1);
-            state.levels = state.chainEl.length;
         },
         setMediaData: function (state, data) {
                 for (var i = 0; i < data.length; i++) {
