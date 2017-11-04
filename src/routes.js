@@ -1,5 +1,4 @@
 import Auth from './components/pages/Auth.vue';
-import Admin from './components/pages/Admin.vue';
 import Menu from './components/pages/Menu.vue';
 import Agencies from './components/pages/home/Agencies.vue';
 import Contact from './components/pages/home/Contact.vue';
@@ -13,7 +12,6 @@ import Snapshots from './components/pages/home/gallery/photo/Snapshots.vue';
 export const routes = [
       {path: '/', redirect: '/home'},
       {path: '/auth', component: Auth},
-      {path: '/admin', component: Admin},
       {path: '/home', component: Menu},
       {path: '/home/gallery', component: Menu},
       {path: '/home/agencies', component: Agencies},

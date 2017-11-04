@@ -1,7 +1,7 @@
 <template>
     <div class="wrapper" style="overflow: hidden; display: block; background-color: rgba(0,0,0,0.5);">
             <div id="compositeWrapperDesktop">
-                <div id="compositeDesktopHeader"><h2 style="text-align: center; color: white; font-family: SansSerif">Fill out the Composite Card</h2></div>
+
                 <div id="compositeDesktop">
 
                     <app-composite-content :compositePictures="compositePictures" :chosenPhotos="chosenPhotos"></app-composite-content>
@@ -85,17 +85,11 @@
         width: 50%;
         height: 100%;
     }
-
-    #compositeDesktopHeader {
-        position: absolute;
-        width: 100%;
-        height: 15%;
-        top: 0;
-    }
     #compositeDesktop {
-        position: relative;
+        position: absolute;
+        top: 10px;
         width: 100%;
-        padding-top: 70.7%;
+        padding-top: 80.7%;
         margin: auto;
         background-color: white;
     }
@@ -103,7 +97,7 @@
         position: absolute;
         display: flex;
         width: 100%;
-        height: 15%;
+        height: 20%;
         bottom: 0;
     }
     #compositeDesktopFooter button {

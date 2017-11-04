@@ -13,7 +13,9 @@
                          :src="'http://localhost:3000/images/' + img"
                          :id="img"
                          @click="placeImage">
-                    <button v-if="chosenPhotos.length == 0" class="btn btn-success">DOWNLOAD</button>
+                    <button v-if="chosenPhotos.length == 0" @click="clearImages" class="btn btn-danger">CLEAR</button>
+                    <button v-if="chosenPhotos.length == 0" @click="submit(chosenPhotos)" class="btn btn-success" :disabled="chosenPhotos.length != 0">PRINT</button>
+                    <button v-if="chosenPhotos.length == 0" @click="changeImages" class="btn btn-primary">CHANGE</button>
                 </div>
 
             </div>

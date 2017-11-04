@@ -2,6 +2,11 @@
     <div class="wrapper" style="overflow: hidden; display: block">
         <div id="thumbnailsGrid" class="col-xs-3 col-sm-7">
             <div class="container" id="gridWrapper">
+                <div v-if="$store.state.isAdmin==1"
+                     class="thumbnail col-xs-12 col-sm-3"
+                     :style="{'background-image': 'url(http://www.clker.com/cliparts/A/P/L/b/V/G/blue-plus-sign-md.png)'} "
+                    >
+                </div>
                 <div v-for="pic in allPhotos"
                      class="thumbnail col-xs-12 col-sm-3"
                      :id="pic.filename" :style="{ 'background-image': 'url(http://localhost:3000/images/' + pic.filename + ')' } "

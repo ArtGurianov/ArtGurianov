@@ -1,9 +1,12 @@
 <template>
   <div id="app" class="container">
+      <div v-if="$store.state.isAdmin == 1" id="admin-mode">
+          <span>ADMINISTRATOR MODE</span>
+      </div>
       <app-header></app-header>
-      <app-nav v-if="$route.path != '/auth' && $route.path != '/admin'"></app-nav>
+      <app-nav></app-nav>
       <transition name="content-fadein">
-          <div v-if="showContent" :id="$route.path != '/admin' ? 'appContent' : 'admin'">
+          <div v-if="showContent" id="appContent">
               <router-view :key="$route.path"></router-view>
           </div>
       </transition>
@@ -48,15 +51,16 @@
 </script>
 
 <style lang="scss">
-
-    #admin {
-        margin: 0;
-        padding: 0;
+    
+    #admin-mode {
         position: absolute;
-        height: 100%;
-        width: 100%;
-        overflow-y: scroll;
-        background-color: rgba(0,0,0,0.5);
+        width: 150px;
+        height: 50px;
+        top: 0;
+        right: 0;
+        background-color: green;
+        text-align: center;
+        color: white;
     }
 
     #app {

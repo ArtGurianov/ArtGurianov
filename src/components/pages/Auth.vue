@@ -24,7 +24,7 @@
                 self.$store.state.sessionToken = res.data.sessionToken;
                 self.$store.state.isAdmin = 1;
                 console.log(self.$store.state.sessionToken);
-                self.$router.push('/admin');
+                self.$router.push('/home');
               } else {
                 console.log(res.data.status);
               }
