@@ -6,7 +6,43 @@
 
             <div id="composite-card">
 
-                <app-composite-content :compositePictures="compositePictures" :chosenPhotos="chosenPhotos"></app-composite-content>
+                <!--<app-composite-content :compositePictures="compositePictures" :chosenPhotos="chosenPhotos"></app-composite-content>-->
+                <div id="contentWrapper">
+                    <div id="mainCompositePictureContainer">
+                        <div v-if="compositePictures[0] != undefined" id="mainCompositePicture"
+                             :style="{ 'background-image': 'url(http://localhost:3000/images/' + compositePictures[0] + ')' } "
+                             @click="removeImage">
+
+                        </div>
+                        <div v-else id="number1"
+                             class="number"
+                             :style="{'background-image': 'url(/src/assets/numbers/number1.png)'}"></div>
+                    </div>
+
+                    <div id="smallCompositePicturesContainer">
+
+                        <div id="smallCompositePictures">
+
+                            <div class="smallCompositePicWrapper" v-for="n in 4">
+                                <div v-if="compositePictures[n] != undefined"
+                                     class="smallCompositePicture"
+                                     :id="'smallCompositePicture'+n"
+                                     :style="{'background-image': 'url(http://localhost:3000/images/' + compositePictures[n] + ')' }"
+                                     @click="removeImage">
+                                </div>
+                                <div v-else
+                                     :id="'number'+(n+1)"
+                                     class="number"
+                                     :style="{'background-image': 'url(/src/assets/numbers/number'+(n+1)+'.png)'}"></div>
+                            </div>
+
+                        </div>
+
+                    </div>
+                    <div id="compositeFooter">
+                        <p>information</p>
+                    </div>
+                </div>
 
             </div>
 
@@ -45,16 +81,12 @@
 </template>
 
 <script>
-  import CompositeContent from './CompositeContent.vue';
   export default {
     data() {
       return {
         compositePictures: [],
         chosenPhotos: this.$store.state.chosenPhotos.slice()
       }
-    },
-    components: {
-      appCompositeContent: CompositeContent
     },
     methods:{
       placeImage() {
@@ -70,6 +102,24 @@
           }
         }
       },
+      removeImage() {
+        var id = event.target.id;
+        var index;
+        if (id == "mainCompositePicture") {
+          index = 0;
+        } else if (id == "smallCompositePicture1") {
+          index = 1;
+        } else if (id == "smallCompositePicture2") {
+          index = 2;
+        } else if (id == "smallCompositePicture3") {
+          index = 3;
+        } else if (id == "smallCompositePicture4") {
+          index = 4;
+        }
+        var img = this.compositePictures[index];
+        this.chosenPhotos.push(img);
+        this.compositePictures.splice(index, 1, undefined);
+      },
       clearImages() {
         this.compositePictures = [];
         this.chosenPhotos = this.$store.state.chosenPhotos.slice();
@@ -77,7 +127,7 @@
       changeImages() {
         this.compositePictures = [];
         this.$store.state.chosenPhotos = [];
-        this.redirectToBookPage();
+        this.$router.push('/book');
       }
     }
   }
@@ -214,6 +264,108 @@
         }
     }
 
+
+
+    /* COMPOSITE STYLES */
+
+    #contentWrapper {
+        height: 100%;
+        width: 100%;
+        background-color: lightgray;
+        position: absolute;
+        top: 0; bottom: 0; left: 0; right: 0;
+        font-size: 24px;
+        text-align: center;
+    }
+    #mainCompositePictureContainer {
+        height: calc(93% - 10px);
+        width: calc(50% - 10px);
+        margin: 5px;
+        background-color: lightgray;
+        float: left;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border: 1px solid black;
+
+    }
+    #smallCompositePicturesContainer {
+        height: 93%;
+        width: 50%;
+        background-color: lightgray;
+        float: left;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    #compositeFooter {
+        height: 7%;
+        width: 90%;
+        margin: 0 5% 0 5%;
+        background-color: lightgray;
+        float: left;
+        align-content: center;
+        text-align: left;
+        justify-content: center;
+        color: black;
+        font-style: italic;
+        font-size: 60%;
+    }
+
+    #mainCompositePicture {
+
+        height: 100%;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        cursor: pointer;
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center;
+        box-sizing: border-box;
+        -moz-box-sizing: border-box;
+        -webkit-box-sizing: border-box;
+
+    }
+    #smallCompositePictures {
+        height: 95%;
+        width: 95%;
+        background-color: lightgray;
+
+    }
+    .smallCompositePicWrapper {
+        height: calc(50% - 2px);
+        width: calc(50% - 2px);
+        float: left;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border: 1px solid black;
+        margin: 1px;
+    }
+    .smallCompositePicture {
+        height: 100%;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        cursor: pointer;
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center;
+        box-sizing: border-box;
+        -moz-box-sizing: border-box;
+        -webkit-box-sizing: border-box;
+    }
+
+    .number {
+        height: 50%;
+        width: 50%;
+        background-size: 100% auto;
+        background-repeat: no-repeat;
+        background-position: center;
+    }
 
 
 

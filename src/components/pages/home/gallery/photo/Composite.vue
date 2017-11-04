@@ -2,7 +2,7 @@
     <div class="wrapper" style="display: block">
         <div class="wrapper" v-if="$store.state.chosenPhotos.length == 5">
 
-                <app-composite-structure></app-composite-structure>
+                <app-composite-page></app-composite-page>
 
             <!--<app-composite-desktop-structure v-if="!this.$store.state.mobileVersion"></app-composite-desktop-structure>
 
@@ -27,15 +27,11 @@
 </template>
 
 <script>
-import CompositeMobileStructure from './composite/CompositeMobileStructure.vue';
-import CompositeDesktopStructure from './composite/CompositeDesktopStructure.vue';
-import CompositeStructure from './composite/CompositeStructure.vue';
+import CompositePage from './composite/CompositePage.vue';
 
 export default {
     components: {
-        appCompositeMobileStructure: CompositeMobileStructure,
-        appCompositeDesktopStructure: CompositeDesktopStructure,
-        appCompositeStructure: CompositeStructure
+        appCompositePage: CompositePage
     },
     methods: {
         downloadDefaultComposite() {
