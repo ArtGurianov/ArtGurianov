@@ -53,9 +53,6 @@
                 this.$store.state.chainEl = ['home', 'gallery', 'photo', 'composite'];
                 this.$router.push('composite');
             }
-        },
-        mounted: function() {
-            //console.log(this.$store.state.db_book);
         }
     }
 </script>

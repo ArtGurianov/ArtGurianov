@@ -17,6 +17,7 @@ export const store = new Vuex.Store({
         db_book: [],
         db_videos: [],
         db_snapshots: [],
+        db_snapvideo: [],
         categories: Categories
         },
     getters: {
@@ -39,6 +40,8 @@ export const store = new Vuex.Store({
                         state.db_videos.push(data[i]);
                     } else if (data[i].type == 'snapshot') {
                         state.db_snapshots.push(data[i]);
+                    } else if (data[i].type == 'snapvideo') {
+                        state.db_snapvideo.push(data[i]);
                     }
                 };
             }
