@@ -64,7 +64,7 @@
                         <button v-show="chosenPhotos.length == 0" @click="clearImages" class="btn btn-danger">CLEAR</button>
                     </li>
                     <li>
-                        <button v-show="chosenPhotos.length == 0" @click="submit(chosenPhotos)" class="btn btn-success" :disabled="chosenPhotos.length != 0">PRINT</button>
+                        <button v-show="chosenPhotos.length == 0" @click="generatePdf()" class="btn btn-success" :disabled="chosenPhotos.length != 0">PRINT</button>
                     </li>
                     <li>
                         <button v-show="chosenPhotos.length == 0" @click="changeImages" class="btn btn-primary">CHANGE</button>
@@ -81,6 +81,8 @@
 </template>
 
 <script>
+  import Api from "../../../../../../services/Api";
+
   export default {
     data() {
       return {
@@ -128,6 +130,14 @@
         this.compositePictures = [];
         this.$store.state.chosenPhotos = [];
         this.$router.push('/book');
+      },
+      generatePdf() {
+        var self = this;
+        Api().post('generate_pdf', { pics: self.compositePictures }).then(function (res) {
+        })
+        setTimeout(function() {
+          window.open('http://localhost:3000/CustomComposite.pdf', '_blank');
+        }, 500);
       }
     }
   }

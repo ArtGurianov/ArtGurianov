@@ -3,16 +3,8 @@ const path = require('path');
 const bodyParser = require('body-parser');
 const cors = require('cors');
 const morgan = require('morgan');
-const twoFactor = require('node-2fa');
-const {SHA256} = require('crypto-js');
-const mongoose = require('mongoose');
-
-mongoose.connect('mongodb://artgurianov:artgur96@ds161194.mlab.com:61194/artgurianov_storage');
-const db = mongoose.connection;
-
-var authSecret = 'HK5LSXAMSDXU7BQ3GEEMACVKVCTLVRVV'//twoFactor.generateSecret({name: 'artgurianov', account: 'artgurianovcom'});
-var authToken = undefined; // valid for 1 minute to login
-var	sessionToken = undefined; //valid for 10 minutes to update content
+const fs = require('fs');
+const PDFDocument = require('pdfkit');
 
 const app = express();
 app.use(express.static(path.join(__dirname, '../public')));
@@ -23,54 +15,41 @@ app.use(bodyParser.json());
 app.use(cors());
 app.options('*', cors());
 
-const MediaModel = require('../models/MediaModel');
-
-
-app.get('/api/generate_authToken', (req, res) => {
-	authToken = twoFactor.generateToken(authSecret); //authSecret.secret
-	console.log(authToken);
-	setTimeout(function(){ authToken = undefined }, 60000);
-	res.send({status: "TOKEN CREATED"});
-});
-
-app.post('/api/validate_authToken', (req, res) => {
-
-	var result = twoFactor.verifyToken(authSecret, req.body.authcode); //authSecret.secret
-
-	if (result === null) {
-    res.send({status: "Code is wrong!"});
-	} else if (result.delta < 0) {
-    res.send({status: "Code is outdated!"});
-	} else if (result.delta >= 0) {
-		sessionToken = SHA256(authToken).toString();
-    setTimeout(function(){ sessionToken = undefined }, 600000);
-    res.send({status: "OK", sessionToken: sessionToken});
-	}
-});
-
-app.post('/api/validate_sessionToken', (req, res) => {
-	if (req.body.sessionToken === sessionToken) {
-		res.send({status: "OK"});
-	} else {
-		res.send({status: "FAILED"});
-	}
-});
-
-
-
-
-app.get('/api/get_media_data', function (req, res) {
-
-  MediaModel.find({}, function (err, data) {
-    if (err) {
-      res.send(err);
-    } else {
-      res.json(data);
+app.post('/api/generate_pdf', (req, res) => {
+	var pics = req.body.pics;
+  var doc = new PDFDocument({
+  	layout: 'landscape',
+  	size: 'A4',
+    info: {
+      Title: 'ArtGurianov.com',
+      Author: 'Art Gurianov'
     }
   });
-
+  var compath = path.join(__dirname, '/../public/CustomComposite.pdf');
+  doc.pipe(fs.createWriteStream(compath));
+  /*doc.fontSize(15).text('Wally Gator !', 50, 50);
+  doc.text('Wally Gator is a swinging alligator in the swamp. He\'s the greatest percolator when he really starts to romp. There has never been a greater operator in the swamp. See ya later, Wally Gator.', {
+    width: 410,
+    align: 'left'
+  });*/
+  doc.image(__dirname + '/../public/images/' + pics[0], 10, 10, {
+    height: 550
+  }).rect(10, 10, 365, 550).stroke();
+  doc.image(__dirname + '/../public/images/' + pics[1], 385, 10, {
+    height: 275
+  }).rect(385, 10, 184, 275).stroke();
+  doc.image(__dirname + '/../public/images/' + pics[2], 575, 10, {
+    height: 275
+  }).rect(575, 10, 184, 275).stroke();
+  doc.image(__dirname + '/../public/images/' + pics[3], 385, 285, {
+    height: 275
+  }).rect(385, 285, 184, 275).stroke();
+  doc.image(__dirname + '/../public/images/' + pics[4], 575, 285, {
+    height: 275
+  }).rect(575, 285, 184, 275).stroke();
+  doc.end();
+  res.send({status: 'OK'});
 });
-
 
 
 app.listen(process.env.PORT || 3000, function() {

@@ -5,9 +5,11 @@
       </div>
       <app-header></app-header>
       <app-nav></app-nav>
-      <transition name="content-fadein">
+      <transition name="component-fade" mode="out-in">
           <div v-if="showContent" id="appContent">
-              <router-view :key="$route.path"></router-view>
+              <transition name="component-fade" mode="out-in">
+                <router-view :key="$route.path"></router-view>
+              </transition>
           </div>
       </transition>
   </div>
@@ -31,8 +33,6 @@
             appMenu: Menu
         },
         beforeCreate: function () {
-            this.$store.dispatch('requestMediaData');
-            //this.$store.commit('setChainEl', this.$route.path.slice(1));
             this.$store.commit('setBrowserHeight', window.innerHeight);
             this.$store.commit('setBrowserWidth', window.innerWidth);
             if (window.innerWidth < 768) {
@@ -102,11 +102,18 @@
 
 
 
-
-    .content-fadein-enter-active {
-        animation: fade-in 500ms ease-in-out;
+    .component-fade-enter-active {
+        animation: fade-in 300ms ease-in-out;
     }
-
+    .component-fade-enter {
+        animation: fade-in 300ms ease-in-out;
+    }
+    .component-fade-leave-to {
+        animation: fade-out 200ms ease-in-out;
+    }
+    .component-fade-leave-to {
+        animation: fade-out 200ms ease-in-out;
+    }
 
 
     @keyframes fade-in {
@@ -117,6 +124,17 @@
             opacity: 1;
         }
     }
+
+    @keyframes fade-out {
+        from {
+            opacity: 1;
+        }
+        to {
+            opacity: 0;
+        }
+    }
+
+
 
     .inner-select {
         display: flex;

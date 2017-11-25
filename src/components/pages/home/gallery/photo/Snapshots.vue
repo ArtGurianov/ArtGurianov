@@ -13,14 +13,14 @@
             <h2>Updated: 05.11.2017</h2>
         </div>
         <div id="photo-container" v-show="show=='photo'">
-            <img v-for="snap in snapshots" :src="'http://localhost:3000/images/snapshots/' + snap.filename" class="snapshot" :id="snap.filename"></img>
+            <img v-for="snap in snapshots" :src="'http://localhost:3000/images/snapshots/' + snap" class="snapshot" :id="snap"></img>
         </div>
         <div id="video-container" v-show="show=='video'">
             <div class='embed-container'>
-                <iframe :src="'http://player.vimeo.com/video/'+snapvideo[0].filename" frameborder='0' webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>
+                <iframe :src="'http://player.vimeo.com/video/'+snapvideo.intro" frameborder='0' webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>
             </div>
             <div class='embed-container'>
-                <iframe :src="'http://player.vimeo.com/video/'+snapvideo[1].filename" frameborder='0' webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>
+                <iframe :src="'http://player.vimeo.com/video/'+snapvideo.walk" frameborder='0' webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>
             </div>
         </div>
 
@@ -28,13 +28,16 @@
 </template>
 
 <script>
+  import { Media } from '../../../../../store/media';
 
   export default {
     data() {
       return {
         show: 'photo',
         snapshots: this.$store.state.db_snapshots,
-        snapvideo: this.$store.state.db_snapvideo
+        snapvideo: this.$store.state.db_snapvideo,
+        snapshots: Media.snapshots,
+        snapvideo: Media.snap_video
       }
     },
     methods: {

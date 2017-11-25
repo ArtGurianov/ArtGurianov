@@ -9,9 +9,9 @@
                 </div>
                 <div v-for="pic in allPhotos"
                      class="thumbnail col-xs-12 col-sm-3"
-                     :id="pic.filename" :style="{ 'background-image': 'url(http://localhost:3000/images/' + pic.filename + ')' } "
+                     :id="pic" :style="{ 'background-image': 'url(http://localhost:3000/images/' + pic + ')' } "
                      @click="openPic">
-                    <input :id="pic.filename" :disabled="$store.state.chosenPhotos.length >= 5" type="checkbox" :value="pic.filename" v-model="$store.state.chosenPhotos">
+                    <input :id="pic" :disabled="$store.state.chosenPhotos.length >= 5" type="checkbox" :value="pic" v-model="$store.state.chosenPhotos">
                 </div>
             </div>
         </div>
@@ -30,13 +30,13 @@
 </template>
 
 <script>
-    import { Categories } from '../../../../../store/categories';
+    import { Media } from '../../../../../store/media';
 
     export default {
         data() {
             return {
                 openedPic: 'one.jpg',
-                allPhotos: this.$store.state.db_book,
+                allPhotos: Media.book,
                 choosePhotos: 5
             }
         },
