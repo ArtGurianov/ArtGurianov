@@ -17,7 +17,7 @@ export const Categories = {
         },
         web: {
             id: 'web-select',
-            title: 'Web',
+            title: 'I.T.',
             component: 'Web'
         },
         photo: {

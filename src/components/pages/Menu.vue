@@ -40,6 +40,10 @@
 
 <style>
 
+    .inner-select p {
+        font-style: italic;
+        font-family: "Times New Roman";
+    }
 
 
 </style>

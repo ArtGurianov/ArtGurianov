@@ -5,6 +5,7 @@ const cors = require('cors');
 const morgan = require('morgan');
 const fs = require('fs');
 const PDFDocument = require('pdfkit');
+const nodemailer = require('nodemailer');
 
 const app = express();
 app.use(express.static(path.join(__dirname, '../public')));
@@ -51,6 +52,44 @@ app.post('/api/generate_pdf', (req, res) => {
   res.send({status: 'OK'});
 });
 
+app.post('/api/send_email', (req, res) => {
+  var formName = req.body.formName;
+  var formCompany = req.body.formCompany;
+  var formEmail = req.body.formEmail;
+  var formPhone = req.body.formPhone;
+  var formSubject = req.body.formSubject;
+  var formMessage = req.body.formMessage;
+
+  //var text = 'Hello! My name is ' + req.body.formName + '! I work in ' + req.body.formCompany + ' company :) I have an offer for you about ' + req.body.formSubject + '... Please call me back: ' + formPhone + ' :)';
+
+  var transporter = nodemailer.createTransport({
+    service: 'Gmail',
+    auth: {
+      user: 'guryan1996@gmail.com', // Your email id
+      pass: '4hnpsabCpAW6' // Your password
+    }
+  });
+
+  var mailOptions = {
+    from: 'guryan1996@gmail.com', // sender address
+    to: 'artgurianov@yandex.ru', // list of receivers
+    subject: formSubject, // Subject line
+    text: `Hello! My name is ${formName}! I work in ${formCompany} company :) I have an offer for you about ${formSubject}! Please call me back: ${formPhone}!` //, // plaintext body
+    //text: text
+    // html: '<b>Hello world ✔</b>' // You can choose to send an HTML body instead
+  };
+
+  transporter.sendMail(mailOptions, function(error, info){
+    if(error){
+      console.log(error);
+      res.send('Err');
+    }else{
+      res.send('OK');
+    };
+  });
+
+
+});
 
 app.listen(process.env.PORT || 3000, function() {
 	console.log('server started on port 3000...');

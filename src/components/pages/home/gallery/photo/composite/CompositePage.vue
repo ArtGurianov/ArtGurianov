@@ -133,8 +133,7 @@
       },
       generatePdf() {
         var self = this;
-        Api().post('generate_pdf', { pics: self.compositePictures }).then(function (res) {
-        })
+        Api().post('generate_pdf', { pics: self.compositePictures });
         setTimeout(function() {
           window.open('http://localhost:3000/CustomComposite.pdf', '_blank');
         }, 500);
