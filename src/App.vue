@@ -50,7 +50,7 @@
 
 </script>
 
-<style lang="scss">
+<style>
     
     #admin-mode {
         position: absolute;

@@ -28,6 +28,12 @@
 <style>
     .slide-right-enter-active {
         animation: slideRightIn .5s;
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        width: 100%;
     }
     .slide-right-leave-active {
         animation: slideRightOut .5s;
@@ -50,6 +56,12 @@
 
     .slide-left-enter-active {
         animation: slideLeftIn .5s;
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        width: 100%;
     }
     .slide-left-leave-active {
         animation: slideLeftOut .5s;
