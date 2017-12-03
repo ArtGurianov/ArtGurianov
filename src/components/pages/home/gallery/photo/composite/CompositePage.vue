@@ -40,7 +40,6 @@
 
                     </div>
                     <div id="compositeFooter">
-                        <p>information</p>
                     </div>
                 </div>
 
@@ -280,17 +279,16 @@
     #contentWrapper {
         height: 100%;
         width: 100%;
-        background-color: lightgray;
+        background-color: white;
         position: absolute;
         top: 0; bottom: 0; left: 0; right: 0;
         font-size: 24px;
         text-align: center;
     }
     #mainCompositePictureContainer {
-        height: calc(93% - 10px);
+        height: calc(100% - 40px);
         width: calc(50% - 10px);
         margin: 5px;
-        background-color: lightgray;
         float: left;
         display: flex;
         justify-content: center;
@@ -299,26 +297,25 @@
 
     }
     #smallCompositePicturesContainer {
-        height: 93%;
+        height: 100%;
         width: 50%;
-        background-color: lightgray;
         float: left;
         display: flex;
         justify-content: center;
         align-items: center;
     }
     #compositeFooter {
-        height: 7%;
-        width: 90%;
-        margin: 0 5% 0 5%;
-        background-color: lightgray;
+        position: absolute;
+        left: 5px;
+        bottom: 10px;
+        background-image: url(/src/assets/PDFmeasurement.jpg);
+        background-size: 100% auto;
+        background-repeat: no-repeat;
+        background-position: center;
+        display: inline-block;
+        height: 30px;
+        width: calc(50% - 10px);
         float: left;
-        align-content: center;
-        text-align: left;
-        justify-content: center;
-        color: black;
-        font-style: italic;
-        font-size: 60%;
     }
 
     #mainCompositePicture {
@@ -340,7 +337,6 @@
     #smallCompositePictures {
         height: 95%;
         width: 95%;
-        background-color: lightgray;
 
     }
     .smallCompositePicWrapper {
