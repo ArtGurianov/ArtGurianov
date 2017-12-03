@@ -4,23 +4,16 @@
 
                 <app-composite-page></app-composite-page>
 
-            <!--<app-composite-desktop-structure v-if="!this.$store.state.mobileVersion"></app-composite-desktop-structure>
-
-
-            <app-composite-mobile-structure v-if="this.$store.state.mobileVersion"></app-composite-mobile-structure>-->
-
-
-
     </div>
 
 
 
     <div id="defaultCompositePage" class="wrapper" v-if="$store.state.chosenPhotos.length < 5">
         <br>
-        <p>If you need my composite card, you can</p><br>
-        <h2 @click="downloadDefaultComposite">DOWNLOAD DEFAULT VERSION</h2><br>
-        <p>Or</p><br>
-        <h2 @click="redirectToBookPage" >MAKE YOUR OWN</h2>
+        <p>If you need my composite card, please <br>
+        <span @click="downloadDefaultComposite">DOWNLOAD DEFAULT VERSION</span><br>
+        Or<br>
+        <span @click="$router.push('book');" >MAKE YOUR OWN</span></p>
     </div>
 </div>
 
@@ -36,9 +29,6 @@ export default {
     methods: {
         downloadDefaultComposite() {
 
-        },
-        redirectToBookPage() {
-            this.$router.push('book');
         }
     }
 }
@@ -46,25 +36,50 @@ export default {
 
 <style>
 #defaultCompositePage {
-    display: block;
-    text-align: center;
-    vertical-align: middle;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
 }
-#defaultCompositePage p {
-    font-size: 2.5vw;
-    font-family: SansSerif;
-    color: white;
 
+/*DESKTOP*/
+@media only screen
+and (min-width : 540px) {
+    #defaultCompositePage p {
+        display: inline-block;
+        font-size: 2.5vw;
+        font-family: SansSerif;
+        color: white;
+        text-align: center;
+
+    }
+    #defaultCompositePage span {
+        font-size: 3vw;
+        font-family: "PT Serif";
+        color: darkred;
+        cursor: pointer;
+    }
 }
-#defaultCompositePage h2 {
-    font-size: 3vw;
-    font-family: "PT Serif";
-    color: aqua;
-    opacity: 0.8;
-    cursor: pointer;
+
+/*MOBILE*/
+@media only screen
+and (max-width : 540px) {
+    #defaultCompositePage p {
+        display: inline-block;
+        font-size: 6vw;
+        font-family: SansSerif;
+        color: white;
+        text-align: center;
+
+    }
+    #defaultCompositePage span {
+        font-size: 6vw;
+        font-family: "PT Serif";
+        color: darkred;
+        cursor: pointer;
+    }
 }
-#defaultCompositePage h2:hover {
-    opacity: 1;
-}
+
+
 </style>
 
