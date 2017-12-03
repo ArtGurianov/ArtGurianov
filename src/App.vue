@@ -84,7 +84,7 @@
     @media only screen
     and (min-width : 768px) {
         #appContent {
-            height: calc(100% - 80px - 15%);
+            height: calc(100% - 80px - 17%);
         }
         #admin {
             height: calc(100% - 15%);

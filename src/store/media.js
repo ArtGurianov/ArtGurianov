@@ -59,14 +59,12 @@ export const Media = {
 
   /* Videos in order from first to last*/
   video: [
-    "179991723",
-    "179991723",
-    "179991723",
-    "179991723",
-    "179991723",
-    "179991723",
-    "179991723",
-    "179991723"
+    ["179991723", "Egor Novikov collection"],
+    ["222899059", "Collaboration with Undercover"],
+    ["209085197", "Quick reel for some casting"],
+    ["199106859", "Exhibition in Tokyo"],
+    ["194461139", "Fun in Korea"],
+    ["185013710", "Suddenly joined some girls"]
 
   ],
   agencies: [

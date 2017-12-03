@@ -153,7 +153,6 @@
             width: 100%;
             height: 50%;
             float: left;
-            border: 1px solid black;
         }
     }
     /* DESKTOP */
@@ -166,7 +165,6 @@
             width: 50%;
             height: 100%;
             float: left;
-            border: 1px solid black;
         }
     }
 

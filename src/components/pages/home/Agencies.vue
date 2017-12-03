@@ -4,8 +4,8 @@
              v-for="(each, i) in media.agencies"
              :style="{ 'background-image': 'url(../../../src/assets/agencies/' + media.agencies[i].image + ')' } "
              :key="i"
-             @mouseover="mouseOver"
-             @mouseleave="mouseLeave">
+             @click="showInfo"
+             @mouseleave="hideInfo">
                 <div :id="media.agencies[i].id" class="wrapper" v-show="target != media.agencies[i].id" style="display: flex; align-items: center; text-align: center; font-size: x-large; justify-content: center;">
                     {{media.agencies[i].title}}
                 </div>
@@ -34,10 +34,10 @@
             }
         },
         methods: {
-          mouseOver: function () {
+          showInfo: function () {
             this.target = event.target.id;
           },
-          mouseLeave: function () {
+          hideInfo: function () {
             this.target = undefined
           }
         }
