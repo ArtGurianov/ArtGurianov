@@ -2,9 +2,9 @@
     <div class="wrapper" style="background-color: rgba(0,0,0,0.5);">
         <div id="contact-info">
             <div v-for="item in contactItems" class="contact-info-item">
-                <div class="contact-info-item-logo">
+                <a class="contact-info-item-logo" style="cursor: pointer" :href="item[2]">
                     <img :src="'../src/assets/contact/' + item[0]">
-                </div>
+                </a>
                 <div class="contact-info-item-text">
                     <h4>{{item[1]}}</h4>
                 </div>

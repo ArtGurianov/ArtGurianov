@@ -35,19 +35,30 @@ app.post('/api/generate_pdf', (req, res) => {
   });*/
   doc.image(__dirname + '/../public/images/' + pics[0], 10, 10, {
     height: 550
-  }).rect(10, 10, 365, 550).stroke();
-  doc.image(__dirname + '/../public/images/' + pics[1], 385, 10, {
-    height: 275
-  }).rect(385, 10, 184, 275).stroke();
-  doc.image(__dirname + '/../public/images/' + pics[2], 575, 10, {
-    height: 275
-  }).rect(575, 10, 184, 275).stroke();
-  doc.image(__dirname + '/../public/images/' + pics[3], 385, 285, {
-    height: 275
-  }).rect(385, 285, 184, 275).stroke();
-  doc.image(__dirname + '/../public/images/' + pics[4], 575, 285, {
-    height: 275
-  }).rect(575, 285, 184, 275).stroke();
+  }).rect(10, 10, 366, 550).stroke();
+
+  doc.image(__dirname + '/../public/images/' + pics[1], 405, 10, {
+    height: 280
+  }).rect(405, 10, 187, 280).stroke();
+
+  doc.image(__dirname + '/../public/images/' + pics[2], 600, 10, {
+    height: 280
+  }).rect(600, 10, 187, 280).stroke();
+
+  doc.image(__dirname + '/../public/images/' + pics[3], 405, 300, {
+    height: 280
+  }).rect(405, 300, 187, 280).stroke();
+
+  doc.image(__dirname + '/../public/images/' + pics[4], 600, 300, {
+    height: 280
+  }).rect(600, 300, 187, 280).stroke();
+
+  doc.image(__dirname + '/../public/images/PDFtitle.jpg', 800, 0, {
+    height: 600
+  });
+  doc.image(__dirname + '/../public/images/PDFmeasurement.jpg', 10, 570, {
+    height: 11
+  });
   doc.end();
   res.send({status: 'OK'});
 });
@@ -60,7 +71,6 @@ app.post('/api/send_email', (req, res) => {
   var formSubject = req.body.formSubject;
   var formMessage = req.body.formMessage;
 
-  //var text = 'Hello! My name is ' + req.body.formName + '! I work in ' + req.body.formCompany + ' company :) I have an offer for you about ' + req.body.formSubject + '... Please call me back: ' + formPhone + ' :)';
 
   var transporter = nodemailer.createTransport({
     service: 'Gmail',

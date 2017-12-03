@@ -1,46 +1,16 @@
 export const Media = {
 /* Pictures in order from first to last*/
   book: [
-    "one.jpg",
-    "two.jpg",
-    "three.jpg",
-    "four.jpg",
-    "five.jpg",
-    "six.jpg",
-    "seven.jpg",
     "eight.jpg",
-    "nine.jpg",
-    "ten.jpg",
-    "one.jpg",
-    "two.jpg",
-    "three.jpg",
-    "four.jpg",
+    "eighteen.jpg",
+    "eleven.jpg",
+    "fifthteen.jpg",
     "five.jpg",
-    "six.jpg",
-    "seven.jpg",
-    "eight.jpg",
-    "nine.jpg",
-    "ten.jpg",
-    "one.jpg",
-    "two.jpg",
-    "three.jpg",
     "four.jpg",
-    "five.jpg",
-    "six.jpg",
-    "seven.jpg",
-    "eight.jpg",
+    "fourteen.jpg",
     "nine.jpg",
-    "ten.jpg",
-    "one.jpg",
-    "two.jpg",
-    "three.jpg",
-    "four.jpg",
-    "five.jpg",
-    "six.jpg",
-    "seven.jpg",
-    "eight.jpg",
-    "nine.jpg",
-    "ten.jpg"
+    "nineteen.jpg",
+    "one.jpg"
   ],
 
   /* Snapshots in order from first to last*/
@@ -135,13 +105,13 @@ export const Media = {
     }
   ],
   contactItems: [
-    ['email.png', 'art@artgurianov.com'],
-    ['phone.png', '+7 (926) 728 0420'],
-    ['instagram.png', '@artgurianov'],
-    ['facebook.png', '@artgurianov'],
-    ['kakao.png', '@artgurianov'],
-    ['wechat.png', '@artgurianov'],
+    ['email.png', 'art@artgurianov.com', 'mailto:artgurianov@yandex.ru?subject=Redirected from ArtGurianov.com'],
+    ['phone.png', '+7 (926) 728 0420', 'tel:+79267280420'],
+    ['instagram.png', '@artgurianov', 'http://instagram.com/artgurianov'],
+    ['facebook.png', '@artgurianov', 'http://facebook.com/artgurianov'],
+    ['kakao.png', '@flexingrussia'],
+    ['wechat.png', '@flexingrussia'],
     ['line.png', '@artgurianov'],
-    ['telegram.png', '@artgurianov']
+    ['telegram.png', '@art1996', 'https://telegram.me/art1996']
   ]
 }
