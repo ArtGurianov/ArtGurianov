@@ -28,7 +28,7 @@ export default {
     },
     methods: {
         downloadDefaultComposite() {
-
+          window.open('http://localhost:3000/DefaultComposite.pdf', '_blank');
         }
     }
 }

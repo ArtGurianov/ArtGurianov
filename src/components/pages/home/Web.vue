@@ -2,8 +2,9 @@
     <div class="wrapper" style="background-color: rgba(0,0,0,0.3);">
         <div id="web-wrapper">
             <div class="it-header"><h3>Web Development</h3></div>
-            <div class="it-body" style="display:inline-block;">This website is made using</br>the progressive javascript framework - Vue2</br>Server side is written in Node.js</br>You can hire me as a web developer</br>to make a new web application for you </br> or update an existing if it's made with: </br> Laravel(php), Vue2(js), Angular4(js), Flask(python) </br> Please go to the
-                <span @click="$router.push('contact');" style="cursor: pointer; color: darkred; font-style: italic">contact page</span> </br> and send an email.</div>
+            <div class="it-body">
+                <p style="display: inline-block;">This website is made using</br>the progressive javascript framework - Vue2</br>Server side is written in Node.js</br>You can hire me as a web developer</br>to make a new web application for you </br> or update an existing if it's made with: </br> Laravel(php), Vue2(js), Angular4(js), Flask(python) </br> Please go to the <span @click="$router.push('contact');" style="cursor: pointer; color: darkred; font-style: italic">contact page</span> </br> and send an email.</p>
+            </div>
         </div>
         <div id="fintech-wrapper">
             <div class="it-header"><h3>FinTech</h3></div>

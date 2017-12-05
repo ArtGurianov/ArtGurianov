@@ -68,8 +68,8 @@ export const Media = {
       country: "Italy",
       city: "Milan",
       agency: "Major",
-      website: "majormilan.com",
-      email: "Christiano@majormilan.com",
+      website: "majormilano.it",
+      email: "Christiano@majormilano.it",
       booker: "Christiano",
       phone: "+81 3 6418 6777",
       image: "Italy-flag.png"

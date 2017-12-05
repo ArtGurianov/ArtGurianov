@@ -57,7 +57,7 @@
     }
 </script>
 
-<style>
+<style scoped>
     #thumbnailsGrid {
         height: 100%;
         margin: 0;
