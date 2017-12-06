@@ -35,7 +35,7 @@
     export default {
         data() {
             return {
-                openedPic: 'one.jpg',
+                openedPic: 'classic.jpg',
                 allPhotos: Media.book,
                 choosePhotos: 5
             }

@@ -1,16 +1,51 @@
 export const Media = {
 /* Pictures in order from first to last*/
   book: [
-    "eight.jpg",
-    "eighteen.jpg",
-    "eleven.jpg",
-    "fifthteen.jpg",
-    "five.jpg",
-    "four.jpg",
-    "fourteen.jpg",
-    "nine.jpg",
-    "nineteen.jpg",
-    "one.jpg"
+    "acvr.jpg",
+    "bannister.jpg",
+    "black.jpg",
+    "blond.jpg",
+    "cdg.jpg",
+    "charms.jpg",
+    "china.jpg",
+    "classic.jpg",
+    "crestbridge.jpg",
+    "eye.jpg",
+    "fila.jpg",
+    "first.jpg",
+    "fred.jpg",
+    "garcons.jpg",
+    "gavroche.jpg",
+    "gentleman.jpg",
+    "haleine.jpg",
+    "hankyu.jpg",
+    "hankyu2.jpg",
+    "kawaii.jpg",
+    "lad.jpg",
+    "lad2.jpg",
+    "look.jpg",
+    "manifesto.jpg",
+    "manifesto2.jpg",
+    "maree.jpg",
+    "milano.jpg",
+    "moscow.jpg",
+    "red.jpg",
+    "resistance.jpg",
+    "resistance2.jpg",
+    "resurrection.jpg",
+    "sense.jpg",
+    "shibuya.jpg",
+    "sk8.jpg",
+    "smoke.jpg",
+    "takeo.jpg",
+    "terrace.jpg",
+    "terrace2.jpg",
+    "tws.jpg",
+    "undercover.jpg"
+
+
+
+
   ],
 
   /* Snapshots in order from first to last*/
@@ -29,12 +64,12 @@ export const Media = {
 
   /* Videos in order from first to last*/
   video: [
+    ["240986329", "TVC for the biggest Russian airlines"],
     ["179991723", "Egor Novikov collection"],
+    ["188875839", "Turned into dragon in South Korea"],
     ["222899059", "Collaboration with Undercover"],
-    ["209085197", "Quick reel for some casting"],
-    ["199106859", "Exhibition in Tokyo"],
-    ["194461139", "Fun in Korea"],
-    ["185013710", "Suddenly joined some girls"]
+    ["209085197", "My reel 2016"],
+    ["199106859", "Exhibition in Tokyo"]
 
   ],
   agencies: [
@@ -45,9 +80,8 @@ export const Media = {
       city: "Moscow",
       agency: "LookModels",
       website: "lookmodels.ru",
-      email: "email@gmail.com",
+      email: "sedlova@lookmodels.ru",
       booker: "Veronika",
-      phone: "+81 3 6418 6777",
       image: "Russia-flag.png"
     },
     {
@@ -57,9 +91,8 @@ export const Media = {
       city: "Paris",
       agency: "MP",
       website: "mpparis.fr",
-      email: "colette@mpparis.com",
+      email: "colette@mpparis.fr",
       booker: "Colette",
-      phone: "+81 3 6418 6777",
       image: "France-flag.png"
     },
     {
@@ -69,9 +102,8 @@ export const Media = {
       city: "Milan",
       agency: "Major",
       website: "majormilano.it",
-      email: "Christiano@majormilano.it",
+      email: "cristiano.cerasola@majormilano.it",
       booker: "Christiano",
-      phone: "+81 3 6418 6777",
       image: "Italy-flag.png"
     },
     {
@@ -83,7 +115,6 @@ export const Media = {
       website: "mdient.com",
       email: "tj@mdient.com",
       booker: "Tzay",
-      phone: "+81 3 6418 6777",
       image: "Korea-flag.png"
     },
     {
@@ -93,9 +124,8 @@ export const Media = {
       city: "Tokyo",
       agency: "Exiles",
       website: "exileshype.com",
-      email: "Mayu@exileshype.com",
+      email: "mayu@exileshype.com",
       booker: "Mayumi",
-      phone: "+81 3 6418 6777",
       image: "Japan-flag.png"
     },
     {
